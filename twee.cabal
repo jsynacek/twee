@@ -38,18 +38,8 @@ flag static-cxx
   default: False
   manual: True
 
-flag parallel
-  description: Build a special parallel version of Twee.
-  default: False
-  manual: True
-
 executable twee
-  if flag(parallel)
-    main-is: ParallelMain.hs
-    build-depends: async, unix
-    c-sources: executable/link.c
-  else
-    main-is: Main.hs
+  main-is: Main.hs
 
   hs-source-dirs:      executable
   other-modules:       SequentialMain
